@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class ContactUsTest extends WebUI {
 
@@ -28,10 +30,10 @@ public class ContactUsTest extends WebUI {
 
             contactUsModel = new ContactUsModel();
 
-            contactUsModel.setName("");
-            contactUsModel.setEmail("");
-            contactUsModel.setPhone("");
-            contactUsModel.setMessage("");
+            contactUsModel.setName("1");
+            contactUsModel.setEmail("1");
+            contactUsModel.setPhone("1");
+            contactUsModel.setMessage("1");
 
 
         } catch (Exception exception){
@@ -54,20 +56,27 @@ public class ContactUsTest extends WebUI {
             //practiceFormPage.fillStudentForm();
             contactUsPage.fillcontactUsForm();
 
-            Assertions.assertEquals(forSubmittedForm(), contactUsPage.isRegistrationDone());
 
+            WebElement element = driver.findElement(By.xpath("//html/body/div/div[3]/div[2]/p[2]"));
+
+            String text = element.getText();
+
+            Assertions.assertEquals("A Customer Care Representative will be contacting you.", text);
+           // Assert.assertEquals("A Customer Care Representative will be contacting you.", contactUsPage.confirmation());
 
         } catch (Exception exception){
             quiteDriver();
             Assertions.fail(exception.getMessage(), exception);
             LOGGER.error(exception.getMessage(), exception);
         }
+
+
     }
 
 
     @AfterEach
     public void tearDown(){
-        quiteDriver();
+       // quiteDriver();
 
     }
 

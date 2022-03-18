@@ -6,9 +6,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ContactUsPage extends CommonActionOnPages {
 
     public ContactUsPage(WebDriver driver, ContactUsModel contactUsModel) {
@@ -24,7 +21,8 @@ public class ContactUsPage extends CommonActionOnPages {
     private final By email = By.id("email");
     private final By phone = By.id("phone");
     private final By message = By.id("message");
-    private final By submit = By.xpath("//input[text()='Send to Customer Care']");
+    private final By submit = By.xpath("//table/tbody/tr[5]/td[2]");
+    private final By confirmation = By.xpath("//html/body/div/div[3]/div[2]/p[2]");
 
 
 
@@ -50,15 +48,17 @@ public class ContactUsPage extends CommonActionOnPages {
         doSubmit(submit);
 
     }
-        /**
-    public List<String> isRegistrationDone(){
-        List<String> submitedFormResul = new ArrayList<>();
-        submitedFormResul.add(getText(assertionname).trim());
-        submitedFormResul.add(getText(assertionGender).trim());
-        submitedFormResul.add(getText(assertionMobile).trim());
-        return submitedFormResul;
-         */
+
+    public Object confirmation(){
+
+        getText(confirmation);
+
+
+        return null;
     }
+
+
+}
 
 
 

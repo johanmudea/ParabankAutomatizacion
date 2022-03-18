@@ -1,11 +1,14 @@
 package co.com.sofka.model.contactus;
 
+import javax.security.auth.callback.ConfirmationCallback;
+
 public class ContactUsModel {
 
     private String name;
     private String email;
     private String phone;
     private String message;
+    private String confirmation;
 
     public String getName() {
         return name;
@@ -38,4 +41,13 @@ public class ContactUsModel {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public String getConfirmation() {
+        return confirmation;
+    }
+
+    public void setConfirmation(String confirmation) {
+        this.confirmation = confirmation;
+    }
 }
+
