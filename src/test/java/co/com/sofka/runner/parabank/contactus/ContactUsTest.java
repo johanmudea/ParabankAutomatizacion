@@ -1,6 +1,7 @@
 package co.com.sofka.runner.parabank.contactus;
 
 import co.com.sofka.model.contactus.ContactUsModel;
+import co.com.sofka.page.contactus.ContactUsPage;
 import co.com.sofka.stepdefinition.setup.WebUI;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
@@ -47,6 +48,13 @@ public class ContactUsTest extends WebUI {
     @Test
     public void contactUsTestMandatoryFields(){
         try{
+            //PracticeFormPage practiceFormPage = new PracticeFormPage(driver, practiceFormModel, TEN_SECONDS.getValue());
+            ContactUsPage contactUsPage = new ContactUsPage(driver, contactUsModel);
+
+            //practiceFormPage.fillStudentForm();
+            contactUsPage.fillcontactUsForm();
+
+            Assertions.assertEquals(forSubmittedForm(), contactUsPage.isRegistrationDone());
 
 
         } catch (Exception exception){
