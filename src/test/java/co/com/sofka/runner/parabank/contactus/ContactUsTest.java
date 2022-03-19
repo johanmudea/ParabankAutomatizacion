@@ -16,7 +16,7 @@ public class ContactUsTest extends WebUI {
     private static final Logger LOGGER = Logger.getLogger(ContactUsTest.class);
 
     private ContactUsModel contactUsModel;
-
+    private ContactUsPage contactUsPage;
 
 
 
@@ -31,7 +31,7 @@ public class ContactUsTest extends WebUI {
             contactUsModel = new ContactUsModel();
 
             contactUsModel.setName("1");
-            contactUsModel.setEmail("1");
+            //contactUsModel.setEmail("1");
             contactUsModel.setPhone("1");
             contactUsModel.setMessage("1");
 
@@ -50,19 +50,17 @@ public class ContactUsTest extends WebUI {
     @Test
     public void contactUsTestMandatoryFields(){
         try{
-            //PracticeFormPage practiceFormPage = new PracticeFormPage(driver, practiceFormModel, TEN_SECONDS.getValue());
-            ContactUsPage contactUsPage = new ContactUsPage(driver, contactUsModel);
+            contactUsPage = new ContactUsPage(driver, contactUsModel);
 
-            //practiceFormPage.fillStudentForm();
             contactUsPage.fillcontactUsForm();
 
+            //WebElement element = driver.findElement(By.xpath("//html/body/div/div[3]/div[2]/p[2]"));
+            //String text = element.getText();
 
-            WebElement element = driver.findElement(By.xpath("//html/body/div/div[3]/div[2]/p[2]"));
 
-            String text = element.getText();
+           // Assertions.assertEquals("A Customer Care Representative will be contacting you.", contactUsPage.confirmation(driver));
 
-            Assertions.assertEquals("A Customer Care Representative will be contacting you.", text);
-           // Assert.assertEquals("A Customer Care Representative will be contacting you.", contactUsPage.confirmation());
+            Assertions.assertEquals("Email is required.", contactUsPage.emailError(driver));
 
         } catch (Exception exception){
             quiteDriver();
@@ -76,8 +74,10 @@ public class ContactUsTest extends WebUI {
 
     @AfterEach
     public void tearDown(){
-       // quiteDriver();
+        quiteDriver();
 
     }
+
+
 
 }
