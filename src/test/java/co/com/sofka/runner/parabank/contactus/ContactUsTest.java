@@ -71,7 +71,6 @@ public class ContactUsTest extends WebUI {
 
     }
 
-
     @AfterEach
     public void tearDown(){
         quiteDriver();

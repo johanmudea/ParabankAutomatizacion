@@ -16,17 +16,20 @@ public class ContactUsPage extends CommonActionOnPages {
         this.contactUsModel = contactUsModel;
     }
 
-    private static final Logger LOGGER = Logger.getLogger(ContactUsPage.class);
+    public static final Logger LOGGER = Logger.getLogger(ContactUsPage.class);
     private ContactUsModel contactUsModel;
+
     private static final String MODEL_NULL_MESSAGE = "El modelo del formulario es nulo.";
 
 
     private final By contacto = By.linkText("Contact Us");
+
     private final By name = By.id("name");
     private final By email = By.id("email");
     private final By phone = By.id("phone");
     private final By message = By.id("message");
     private final By submit = By.xpath("//table/tbody/tr[5]/td[2]");
+
     private final By confirmation = By.xpath("//html/body/div/div[3]/div[2]/p[2]");
 
     private final By emailError = By.id("email.errors");
