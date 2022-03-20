@@ -10,7 +10,6 @@ public class RegisterModel {
     private String zipCode;
     private String phoneNumber;
     private String ssn;
-
     private String userName;
     private String password;
     private String confirm;

@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"D:/projects/training_sofka/ParabankAutomatizacion/src/test/resources/features/login/ContactUs.feature"},
-        glue = "co.com.sofka.stepdefinition.contactus"
+        features = {"D:/projects/training_sofka/ParabankAutomatizacion/src/test/resources/features/login/Login.feature"},
+        glue = "co.com.sofka.stepdefinition.login"
         //tags = "@executable"
 )
 

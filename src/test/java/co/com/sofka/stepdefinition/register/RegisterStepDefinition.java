@@ -106,7 +106,7 @@ public class RegisterStepDefinition extends WebUI {
             registerModel.setPhoneNumber("1");
             registerModel.setSsn("1");
 
-            registerModel.setUserName("juan");
+            registerModel.setUserName("juanse");
             registerModel.setPassword("1");
             registerModel.setConfirm("1");
 
@@ -117,7 +117,7 @@ public class RegisterStepDefinition extends WebUI {
 
 
         } catch (Exception exception){
-            //quiteDriver();
+            quiteDriver();
             Assertions.fail(exception.getMessage(), exception);
             LOGGER.error(exception.getMessage(), exception);
         }
@@ -128,7 +128,7 @@ public class RegisterStepDefinition extends WebUI {
     public void seMuestraConfirmacionDeRegistro() {
 
         Assertions.assertEquals("Your account was created successfully. You are now logged in.", registerPage.customerForm(driver));
-        quiteDriver();
+        //quiteDriver();
 
     }
 }

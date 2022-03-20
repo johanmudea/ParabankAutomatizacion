@@ -30,22 +30,20 @@ public class RegisterPage extends CommonActionOnPages {
     private final By address = By.id("customer.address.street");
     private final By city = By.id("customer.address.city");
     private final By state = By.id("customer.address.state");
-
     private final By zipCode = By.id("customer.address.zipCode");
     private final By phoneNumber = By.id("customer.phoneNumber");
     private final By ssn = By.id("customer.ssn");
-
     private final By userName = By.id("customer.username");
     private final By password = By.id("customer.password");
     private final By confirm = By.id("repeatedPassword");
 
-
     private final By customerForm = By.xpath("//html/body/div[1]/div[3]/div[2]/p");
-
 
     private final By inConfirmation = By.xpath("//html/body/div[1]/div[3]/div[2]/p");
 
     private final By submit = By.xpath("//table/tbody/tr[13]/td[2]/input");
+
+
 
     public void customerFormIn() throws InterruptedException{
 
