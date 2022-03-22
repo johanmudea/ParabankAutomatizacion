@@ -7,9 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.concurrent.TimeUnit;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class CommonActionOnPages extends BaseSikulix{
@@ -21,6 +19,7 @@ public class CommonActionOnPages extends BaseSikulix{
     private WebDriverWait webDriverExplicitWait;
 
     //Constructor
+
     public CommonActionOnPages(WebDriver driver) {
         try{
             if(driver == null)
@@ -75,6 +74,7 @@ public class CommonActionOnPages extends BaseSikulix{
     }
 
     //Funcionalidades
+
     protected void clearOn(By locator){
         driver.findElement(locator).clear();
     }
@@ -91,8 +91,6 @@ public class CommonActionOnPages extends BaseSikulix{
         webDriverExplicitWait.until(elementToBeClickable(webElement)).clear();
     }
 
-    //
-
     protected void clickOn(By locator){
         driver.findElement(locator).click();
     }
@@ -101,8 +99,6 @@ public class CommonActionOnPages extends BaseSikulix{
         webElement.click();
     }
 
-    //
-
     protected void typeOn(By locator, CharSequence... keysToSend){
         driver.findElement(locator).sendKeys(keysToSend);
     }
@@ -110,8 +106,6 @@ public class CommonActionOnPages extends BaseSikulix{
     protected void typeOn(WebElement webElement, CharSequence... keysToSend){
         webElement.sendKeys(keysToSend);
     }
-
-    //
 
     protected void scrollOn(By locator){
         JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -123,8 +117,6 @@ public class CommonActionOnPages extends BaseSikulix{
         jse.executeScript("arguments[0].scrollIntoView();", webElement);
     }
 
-    //
-
     protected void doSubmit(By locator){
         driver.findElement(locator).submit();
     }
@@ -132,8 +124,6 @@ public class CommonActionOnPages extends BaseSikulix{
     protected void doSubmit(WebElement webElement){
         webElement.submit();
     }
-
-    //
 
     protected String getText(By locator){
         return driver.findElement(locator).getText();

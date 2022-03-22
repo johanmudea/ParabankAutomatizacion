@@ -1,48 +1,79 @@
 package co.com.sofka.page.register;
 
-import co.com.sofka.model.contactus.ContactUsModel;
 import co.com.sofka.model.register.RegisterModel;
 import co.com.sofka.page.common.CommonActionOnPages;
-import co.com.sofka.page.contactus.ContactUsPage;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
 
 public class RegisterPage extends CommonActionOnPages {
 
     public RegisterPage(WebDriver driver, RegisterModel registerModel) {
         super(driver);
+        pageFactoryInitElement(driver, this);
         this.registerModel = registerModel;
     }
 
     public static final Logger LOGGER = Logger.getLogger(RegisterPage.class);
     private RegisterModel registerModel;
-
     private static final String MODEL_NULL_MESSAGE = "El modelo del formulario es nulo.";
 
+    //Localizadores
 
-    private final By registro = By.linkText("Register");
+    @CacheLookup
+    @FindBy(linkText = "Register")
+    private WebElement registro;
 
+    @CacheLookup
+    @FindBy(id = "customer.firstName")
+    private WebElement firstName;
 
-    private final By firstName = By.id("customer.firstName");
-    private final By lastName = By.id("customer.lastName");
-    private final By address = By.id("customer.address.street");
-    private final By city = By.id("customer.address.city");
-    private final By state = By.id("customer.address.state");
-    private final By zipCode = By.id("customer.address.zipCode");
-    private final By phoneNumber = By.id("customer.phoneNumber");
-    private final By ssn = By.id("customer.ssn");
-    private final By userName = By.id("customer.username");
-    private final By password = By.id("customer.password");
-    private final By confirm = By.id("repeatedPassword");
+    @CacheLookup
+    @FindBy(id = "customer.lastName")
+    private WebElement lastName;
 
-    private final By customerForm = By.xpath("//html/body/div[1]/div[3]/div[2]/p");
+    @CacheLookup
+    @FindBy(id = "customer.address.street")
+    private WebElement address;
 
-    private final By inConfirmation = By.xpath("//html/body/div[1]/div[3]/div[2]/p");
+    @CacheLookup
+    @FindBy(id = "customer.address.city")
+    private WebElement city;
 
-    private final By submit = By.xpath("//table/tbody/tr[13]/td[2]/input");
+    @CacheLookup
+    @FindBy(id = "customer.address.state")
+    private WebElement state;
 
+    @CacheLookup
+    @FindBy(id = "customer.address.zipCode")
+    private WebElement zipCode;
+
+    @CacheLookup
+    @FindBy(id ="customer.phoneNumber")
+    private  WebElement phoneNumber;
+
+    @CacheLookup
+    @FindBy(id ="customer.ssn")
+    private  WebElement ssn;
+
+    @CacheLookup
+    @FindBy(id ="customer.username")
+    private  WebElement userName;
+
+    @CacheLookup
+    @FindBy(id ="customer.password")
+    private  WebElement password;
+
+    @CacheLookup
+    @FindBy(id ="repeatedPassword")
+    private  WebElement confirm;
+
+    @CacheLookup
+    @FindBy(xpath = "//table/tbody/tr[13]/td[2]/input")
+    private  WebElement submit;
 
 
     public void customerFormIn() throws InterruptedException{
@@ -103,13 +134,10 @@ public class RegisterPage extends CommonActionOnPages {
         clearOn(confirm);
         typeOn(confirm, registerModel.getConfirm());
 
-
         doSubmit(submit);
 
 
     }
-
-
 
     public String customerForm(WebDriver driver){
         WebElement element = driver.findElement(By.xpath("//html/body/div[1]/div[3]/div[2]/p"));
@@ -124,10 +152,5 @@ public class RegisterPage extends CommonActionOnPages {
         return textConfirmation;
 
     }
-
-
-
-
-
 
 }

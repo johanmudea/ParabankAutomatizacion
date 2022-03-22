@@ -6,26 +6,38 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends CommonActionOnPages {
 
     public LoginPage(WebDriver driver, LoginModel loginModel) {
         super(driver);
+        pageFactoryInitElement(driver,this);
         this.loginModel = loginModel;
     }
 
     public static final Logger LOGGER = Logger.getLogger(LoginPage.class);
     private LoginModel loginModel;
-
     private static final String MODEL_NULL_MESSAGE = "El modelo del formulario es nulo.";
 
+    //Localizadores con WebElement.
 
-    private final By userName = By.name("username");
-    private final By password = By.name("password");
-    private final By submit = By.xpath("//html/body/div[1]/div[3]/div[1]/div[1]/form/div[3]/input"); // no such element: Unable to locate element: {"method":"link text","selector":"LOG IN"}
-    private final By logout = By.xpath("//html/body/div[1]/div[3]/div[2]/div/div/h1");
+    @CacheLookup
+    @FindBy(name ="username")
+    private  WebElement username;
+
+    @CacheLookup
+    @FindBy(name ="password")
+    private  WebElement password;
 
 
+    @FindBy(xpath = "//html/body/div[1]/div[3]/div[1]/div[1]/form/div[3]/input")
+    private  WebElement submit;
+
+
+    @FindBy(xpath = "//html/body/div[1]/div[3]/div[2]/div/div/h1")
+    private  WebElement logout;
 
     public void check() throws InterruptedException{
 
@@ -35,13 +47,11 @@ public class LoginPage extends CommonActionOnPages {
 
     }
 
-
     public void fillLogin() throws InterruptedException {
 
-
-        scrollOn(userName);
-        clearOn(userName);
-        typeOn(userName, loginModel.getUserName());
+        scrollOn(username);
+        clearOn(username);
+        typeOn(username, loginModel.getUserName());
 
         scrollOn(password);
         clearOn(password);
@@ -63,9 +73,5 @@ public class LoginPage extends CommonActionOnPages {
         return textForm;
 
     }
-
-
-
-
 
 }

@@ -1,10 +1,7 @@
 package co.com.sofka.stepdefinition.login;
 
 import co.com.sofka.model.login.LoginModel;
-import co.com.sofka.model.register.RegisterModel;
 import co.com.sofka.page.login.LoginPage;
-import co.com.sofka.page.register.RegisterPage;
-import co.com.sofka.stepdefinition.register.RegisterStepDefinition;
 import co.com.sofka.stepdefinition.setup.WebUI;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,18 +9,12 @@ import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
-
-
 public class LoginStepDefinition extends WebUI {
 
     private static final Logger LOGGER = Logger.getLogger(LoginStepDefinition.class);
 
-
     private LoginModel loginModel;
     private LoginPage loginPage;
-
-
-
 
     @Given("estoy en el sitio web")
     public void estoyEnElSitioWeb() {
@@ -41,10 +32,8 @@ public class LoginStepDefinition extends WebUI {
             LOGGER.error(exception.getMessage(), exception);
         }
 
-
-
-
     }
+
     @When("click en login sin diligenciar datos de usuario")
     public void clickEnLoginSinDiligenciarDatosDeUsuario() {
 
@@ -60,9 +49,8 @@ public class LoginStepDefinition extends WebUI {
             LOGGER.error(exception.getMessage(), exception);
         }
 
-
-
     }
+
     @Then("envia mensaje de error")
     public void enviaMensajeDeError() {
 
@@ -70,6 +58,7 @@ public class LoginStepDefinition extends WebUI {
         quiteDriver();
 
     }
+
 
 //escenario 2
 
@@ -79,7 +68,6 @@ public class LoginStepDefinition extends WebUI {
         setUpLog4j2();
         setUpWebDriver();
         generalSetUp();
-
 
     }
     @When("diligencia sus credenciales correctamente")
@@ -98,9 +86,6 @@ public class LoginStepDefinition extends WebUI {
             Assertions.fail(exception.getMessage(), exception);
             LOGGER.error(exception.getMessage(), exception);
         }
-
-
-
 
     }
     @Then("se muestra log out")

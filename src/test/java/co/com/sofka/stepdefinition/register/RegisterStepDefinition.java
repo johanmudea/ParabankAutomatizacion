@@ -96,7 +96,6 @@ public class RegisterStepDefinition extends WebUI {
 
             registerModel = new RegisterModel();
 
-
             registerModel.setFirstName("1");
             registerModel.setLastName("1");
             registerModel.setAddress("1");
@@ -105,8 +104,7 @@ public class RegisterStepDefinition extends WebUI {
             registerModel.setZipCode("1");
             registerModel.setPhoneNumber("1");
             registerModel.setSsn("1");
-
-            registerModel.setUserName("juanse");
+            registerModel.setUserName("1");
             registerModel.setPassword("1");
             registerModel.setConfirm("1");
 
@@ -128,7 +126,7 @@ public class RegisterStepDefinition extends WebUI {
     public void seMuestraConfirmacionDeRegistro() {
 
         Assertions.assertEquals("Your account was created successfully. You are now logged in.", registerPage.customerForm(driver));
-        //quiteDriver();
+        quiteDriver();
 
     }
 }

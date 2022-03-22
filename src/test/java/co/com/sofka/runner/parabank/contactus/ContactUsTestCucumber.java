@@ -13,9 +13,7 @@ import org.junit.runner.RunWith;
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         features = {"D:/projects/training_sofka/ParabankAutomatizacion/src/test/resources/features/contactus/ContactUs.feature"},
         glue = "co.com.sofka.stepdefinition.contactus"
-        //tags = "@executable"
 )
-
 
 public class ContactUsTestCucumber {
 

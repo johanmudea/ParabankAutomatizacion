@@ -1,5 +1,4 @@
 package co.com.sofka.page.common;
-
 import org.apache.log4j.Logger;
 import org.sikuli.script.Screen;
 
@@ -32,7 +31,5 @@ public class BaseSikulix {
             LOGGER.warn(e.getMessage(), e);
         }
     }
-
-
 
 }

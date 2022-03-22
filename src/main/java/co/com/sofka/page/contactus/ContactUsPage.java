@@ -1,41 +1,52 @@
 package co.com.sofka.page.contactus;
 
 import co.com.sofka.model.contactus.ContactUsModel;
-import co.com.sofka.page.common.BaseSikulix;
 import co.com.sofka.page.common.CommonActionOnPages;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
 
 
 public class ContactUsPage extends CommonActionOnPages {
 
     public ContactUsPage(WebDriver driver, ContactUsModel contactUsModel) {
         super(driver);
+        pageFactoryInitElement(driver,this);
         this.contactUsModel = contactUsModel;
     }
 
     public static final Logger LOGGER = Logger.getLogger(ContactUsPage.class);
     private ContactUsModel contactUsModel;
-
     private static final String MODEL_NULL_MESSAGE = "El modelo del formulario es nulo.";
 
+    //For input test cases.
 
-    private final By contacto = By.linkText("Contact Us");
+    @CacheLookup
+    @FindBy(linkText ="Contact Us")
+    private  WebElement contacto ;
 
-    private final By name = By.id("name");
-    private final By email = By.id("email");
-    private final By phone = By.id("phone");
-    private final By message = By.id("message");
-    private final By submit = By.xpath("//table/tbody/tr[5]/td[2]");
+    @CacheLookup
+    @FindBy(id ="name")
+    private  WebElement name;
 
-    private final By confirmation = By.xpath("//html/body/div/div[3]/div[2]/p[2]");
+    @CacheLookup
+    @FindBy(id ="email")
+    private  WebElement email;
 
-    private final By emailError = By.id("email.errors");
+    @CacheLookup
+    @FindBy(id ="phone")
+    private  WebElement phone;
 
+    @CacheLookup
+    @FindBy(id ="message")
+    private  WebElement message;
 
-
+    @CacheLookup
+    @FindBy(xpath = "//table/tbody/tr[5]/td[2]")
+    private  WebElement submit;
 
 
     public void fillcontactUsForm() throws InterruptedException {
@@ -59,7 +70,6 @@ public class ContactUsPage extends CommonActionOnPages {
 
         }
 
-
         scrollOn(phone);
         clearOn(phone);
         typeOn(phone, contactUsModel.getPhone());
@@ -68,12 +78,9 @@ public class ContactUsPage extends CommonActionOnPages {
         clearOn(message);
         typeOn(message, contactUsModel.getMessage());
 
-
         doSubmit(submit);
 
     }
-
-
 
     public String confirmation(WebDriver driver){
         WebElement element = driver.findElement(By.xpath("//html/body/div/div[3]/div[2]/p[2]"));
@@ -88,7 +95,6 @@ public class ContactUsPage extends CommonActionOnPages {
         return text;
 
     }
-
 
 }
 
