@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        features = {"D:/projects/training_sofka/ParabankAutomatizacion/src/test/resources/features/register/Register.feature"},
+        features = {"src/test/resources/features/register/Register.feature"},
         glue = "co.com.sofka.stepdefinition.register"
         //tags = "@executable"
 )
